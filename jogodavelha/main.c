@@ -6,5 +6,6 @@
 
 int main() {
 
+    printf("Gui");
     return 0;
 }
