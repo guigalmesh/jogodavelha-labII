@@ -6,6 +6,9 @@
 
 int main() {
 
-    printf("Gui");
+    int tam = 3; // tamanho 3 x 3 da matriz
+
+    char** tab = aloca_tabuleiro(tam); // testando alocação da matriz
+
     return 0;
 }
