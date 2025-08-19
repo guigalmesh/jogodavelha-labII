@@ -5,6 +5,6 @@
 #include "vitoria.h"
 
 int main() {
-
+    printf("testando pra ver os conflitos");
     return 0;
 }
