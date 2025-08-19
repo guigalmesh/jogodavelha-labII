@@ -6,7 +6,7 @@
 
 int main() {
 
-    int tam = 3; // tamanho 3 x 3 da matriz
+    int tam = input_tamanhoTabuleiro(); // solicita ao usuário tamanho da matriz
 
     char** tab = aloca_tabuleiro(tam); // testando criação e alocação da matriz
 
