@@ -23,5 +23,5 @@ void input_movimentoJogador(int n, int *x, int *y){
         else
             validInput_flag = true;
 
-    }while(!validInput_flag)
+    }while(!validInput_flag);
 }
