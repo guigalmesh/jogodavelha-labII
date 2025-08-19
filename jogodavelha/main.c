@@ -10,6 +10,7 @@ int main() {
 
     char** tab = aloca_tabuleiro(tam); // testando criação e alocação da matriz
 
+    imprime_tabuleiro(tam, tab);
 
     libera_tabuleiro(tam, tab); // liberando memória da matriz
     return 0;
