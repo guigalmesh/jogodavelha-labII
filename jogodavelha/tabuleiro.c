@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "tabuleiro.h"
 
-char **aloca_tabuleiro(int m, char** tab) {
+char **aloca_tabuleiro(int m) {
     char** tab = ((char**)malloc(m*sizeof(char*)));
     for (int i = 0; i < m; i++) {
         tab[i] = ((char*)malloc(m*sizeof(char)));
@@ -13,4 +13,11 @@ char **aloca_tabuleiro(int m, char** tab) {
     } else {
         return tab;
     }    
+}
+
+void libera_tabuleiro(int m, char** tab) {
+    for (int i = 0; i < m; i++) {
+        free(tab[i]);
+    }
+    free(tab);
 }
