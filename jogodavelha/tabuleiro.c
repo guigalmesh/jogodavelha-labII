@@ -14,3 +14,10 @@ char **aloca_tabuleiro(int m) {
         return tab;
     }    
 }
+
+void libera_tabuleiro(int m, char** tab) {
+    for (int i = 0; i < m; i++) {
+        free(tab[i]);
+    }
+    free(tab);
+}

@@ -8,7 +8,9 @@ int main() {
 
     int tam = 3; // tamanho 3 x 3 da matriz
 
-    char** tab = aloca_tabuleiro(tam); // testando alocação da matriz
+    char** tab = aloca_tabuleiro(tam); // testando criação e alocação da matriz
 
+
+    libera_tabuleiro(tam, tab); // liberando memória da matriz
     return 0;
 }
