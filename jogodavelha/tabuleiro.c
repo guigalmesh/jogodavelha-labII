@@ -2,18 +2,18 @@
 #include <stdlib.h>
 #include "tabuleiro.h"
 
-char **aloca_tabuleiro(int m) {
-    char** tab = ((char**)malloc(m*sizeof(char*)));
-    for (int i = 0; i < m; i++) {
-        tab[i] = ((char*)malloc(m*sizeof(char)));
+char **aloca_tabuleiro(int tam) {
+    char** tab = ((char**)malloc(tam*sizeof(char*)));
+    for (int i = 0; i < tam; i++) {
+        tab[i] = ((char*)malloc(tam*sizeof(char)));
     }
     if (tab==NULL) {
         printf("alocacao deu erro!\n");
         return NULL;
     }
     // colocando espaços em cada elemento da matriz
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < m; j++) {
+    for (int i = 0; i < tam; i++) {
+        for (int j = 0; j < tam; j++) {
             tab[i][j] = ' ';
         }
     }
@@ -34,18 +34,20 @@ void realiza_movimentoXis(int coords[2], char** tab){
     return;
 }
 
-void libera_tabuleiro(int m, char** tab) {
-    for (int i = 0; i < m; i++) {
+void libera_tabuleiro(int tam, char** tab) {
+    for (int i = 0; i < tam; i++) {
         free(tab[i]);
     }
     free(tab);
 }
 
-void imprime_tabuleiro(int m, char** tab) {
+void imprime_tabuleiro(int tam, char** tab) {
     printf("Tabuleiro: \n");
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < m; j++) {
-            printf("  %c  |", tab[i][j]);
+    for(int linha = 0; linha < tam; linha++){
+        int cont = 0;
+        for(int coluna = 0; coluna < tam; coluna++){
+            cont++;
+            printf("%5c", tab[linha][coluna]);
         }
         printf("\n");
     }
