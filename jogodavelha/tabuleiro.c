@@ -20,10 +20,17 @@ char **aloca_tabuleiro(int m) {
     return tab;   
 }
 
-void realiza_movimento(int coords[2], char** tab){
+void realiza_movimentoCirculo(int coords[2], char** tab){
     int coordx = coords[0];
     int coordy = coords[1];
-    tab[coordy][coordx] = 'X';
+    tab[coordx][coordy] = 'O';
+    return;
+}
+
+void realiza_movimentoXis(int coords[2], char** tab){
+    int coordx = coords[0];
+    int coordy = coords[1];
+    tab[coordx][coordy] = 'X';
     return;
 }
 
