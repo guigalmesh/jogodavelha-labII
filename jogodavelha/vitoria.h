@@ -3,10 +3,10 @@
 #include <stdbool.h>
 
 int check_vitoria(char **tab);
-bool check_horizontal(char **tab);
-bool check_vertical(char **tab);
-bool check_diagonalPrimaria(char **tab);
-bool check_diagonalSecundaria(char **tab);
+bool check_horizontal(int tam, char **tab);
+bool check_vertical(int tam, char **tab);
+bool check_diagonalPrimaria(int tam, char **tab);
+bool check_diagonalSecundaria(int tam, char **tab);
 void mensagem_vitoriaCirculo();
 void mensagem_vitoriaXis();
 
