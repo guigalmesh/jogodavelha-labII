@@ -4,18 +4,22 @@
 #include "vitoria.h"
 
 void game_loop(int tam, char **tab){
-    int gameOver;
+    int gameOver, contJogadas = 0;
     while(true){
         jogada_circulo(tam, tab);
+        contJogadas++;
         imprime_tabuleiro(tam, tab);
-        gameOver = check_vitoria(tab);
+        if(contJogadas >= tam)
+            gameOver = check_vitoria(tab);
         if(gameOver == VITORIA_CIRCULO){
             mensagem_vitoriaCirculo();
             return;
         }
         jogada_xis(tam, tab);
+        contJogadas++;
         imprime_tabuleiro(tam, tab);
-        gameOver = check_vitoria(tab);
+        if(contJogadas >= tam)
+            gameOver = check_vitoria(tab);
         if(gameOver == VITORIA_X){
             mensagem_vitoriaXis();
             return;
