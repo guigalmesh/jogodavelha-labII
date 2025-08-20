@@ -25,12 +25,12 @@ void game_loop(int tam, char **tab){
 
 int jogada_circulo(int tam, char **tab){
     int coords[2];
-    input_movimentoJogador(tam, coords);
-    realiza_movimento(coords, tab);
+    input_movimentoJogador(tam, coords, tab);
+    realiza_movimentoCirculo(coords, tab);
 }
 
 int jogada_xis(int tam, char **tab){
     int coords[2];
-    input_movimentoJogador(tam, coords);
-    realiza_movimento(coords, tab);
+    input_movimentoJogador(tam, coords, tab);
+    realiza_movimentoXis(coords, tab);
 }

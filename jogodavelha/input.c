@@ -12,15 +12,18 @@ int input_tamanhoTabuleiro(){
     return tam;
 }
 
-void input_movimentoJogador(int n, int coords[2]){
+void input_movimentoJogador(int n, int coords[2], char** tab){
     do{
         printf("Insira as coordenadas onde deseja jogar: \n");
         scanf("%d %d", &coords[0], &coords[1]);
         if(coords[0] > n || coords[1] > n || coords[0] < 0 || coords[1] < 0){
             printf("Insira coordenadas válidas\n");
         }
-        else
-            return;
-
+        else{
+            if(tab[coords[0]][coords[1]] != ' ')
+                printf("Este campo já foi preenchido por %c\n", tab[coords[0]][coords[1]]);
+            else
+                return;
+        }
     }while(true);
 }
