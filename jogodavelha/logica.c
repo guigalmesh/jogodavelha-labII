@@ -10,8 +10,8 @@ void game_loop(int tam, char **tab){
         contJogadas++;
         imprime_tabuleiro(tam, tab);
         if(contJogadas >= tam)
-            gameOver = check_vitoria(tab);
-        if(gameOver == VITORIA_CIRCULO){
+            gameOver = check_vitoria(tam, tab);
+        if(gameOver == true){
             mensagem_vitoriaCirculo();
             return;
         }
@@ -19,8 +19,8 @@ void game_loop(int tam, char **tab){
         contJogadas++;
         imprime_tabuleiro(tam, tab);
         if(contJogadas >= tam)
-            gameOver = check_vitoria(tab);
-        if(gameOver == VITORIA_X){
+            gameOver = check_vitoria(tam, tab);
+        if(gameOver == true){
             mensagem_vitoriaXis();
             return;
         }

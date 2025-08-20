@@ -2,10 +2,6 @@
 #include <stdio.h>
 #include "logica.h"
 
-int check_vitoria(char** tab){
-    return SEM_VITORIA;
-}
-
 bool check_horizontal(int tam, char** tab){
     int contX=0, contO=0;
     for (int i = 0; i < tam; i++) {
@@ -65,7 +61,7 @@ bool check_diagonalPrimaria(int tam, char** tab){
 bool check_diagonalSecundaria(int tam, char** tab){
     int contX=0, contO=0;
     for (int i = 0; i < tam; i++) {
-        for (int j = 0; j < tam; j++) {
+        for (int j = tam; j < 0; j++) {
             if (i==j) {
                 if (tab[i][j] == 'O') {
                     contO++;
@@ -79,6 +75,18 @@ bool check_diagonalSecundaria(int tam, char** tab){
             return true;
         }
     }
+    return false;
+}
+
+int check_vitoria(int tam, char** tab){
+    if(check_horizontal(tam, tab))
+        return true;
+    if(check_vertical(tam, tab))
+        return true;
+    if(check_diagonalPrimaria(tam, tab))
+        return true;
+    if(check_diagonalSecundaria(tam, tab))
+        return true;
     return false;
 }
 
