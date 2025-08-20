@@ -2,7 +2,7 @@
 #define VITORIA_H
 #include <stdbool.h>
 
-bool check_vitoria(char **tab);
+int check_vitoria(char **tab);
 bool check_horizontal(char **tab);
 bool check_vertical(char **tab);
 bool check_diagonalPrimaria(char **tab);

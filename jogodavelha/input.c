@@ -2,26 +2,25 @@
 #include <stdbool.h>
 
 int input_tamanhoTabuleiro(){
-    int n;
+    int tam;
     do{
         printf("Insira o tamanho do tabuleiro:\n");
-        scanf("%d", &n);
-        if(n < 3)
+        scanf("%d", &tam);
+        if(tam < 3)
             printf("O tabuleiro precisa ser pelo menos 3 x 3\n");
-    }while(n<3);
-    return n;
+    }while(tam < 3);
+    return tam;
 }
 
-void input_movimentoJogador(int n, int *x, int *y){
-    bool validInput_flag = false;
+void input_movimentoJogador(int n, int coords[2]){
     do{
         printf("Insira as coordenadas onde deseja jogar: \n");
-        scanf("%d %d", &x, &y);
-        if(x > n || y > n || x < 0 || y < 0){
+        scanf("%d %d", &coords[0], &coords[1]);
+        if(coords[0] > n || coords[1] > n || coords[0] < 0 || coords[1] < 0){
             printf("Insira coordenadas válidas\n");
         }
         else
-            validInput_flag = true;
+            return;
 
-    }while(!validInput_flag);
+    }while(true);
 }

@@ -14,10 +14,17 @@ char **aloca_tabuleiro(int m) {
     // colocando espaços em cada elemento da matriz
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < m; j++) {
-            tab[i][j] = 'X';
+            tab[i][j] = ' ';
         }
     }
     return tab;   
+}
+
+void realiza_movimento(int coords[2], char** tab){
+    int coordx = coords[0];
+    int coordy = coords[1];
+    tab[coordy][coordx] = 'X';
+    return;
 }
 
 void libera_tabuleiro(int m, char** tab) {
