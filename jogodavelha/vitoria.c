@@ -2,58 +2,59 @@
 #include <stdio.h>
 #include "logica.h"
 
+bool teste_sequencia(int i, int j, int *contX, int *contO, char**tab){
+    if (tab[i][j] == 'O') {
+                *contX = 0;
+                (*contO)++;
+    }
+    if (tab[i][j] == 'X') {
+                *contO = 0;
+                (*contX)++;
+    }
+    if(tab[i][j] == ' '){
+                *contO = 0;
+                (*contX) = 0;
+    }
+}
+
 bool check_horizontal(int tam, char** tab){
-    int contX=0, contO=0;
+    int contX = 0, contO = 0;
+    int *pcontX = &contX, *pcontO = &contO;
     for (int i = 0; i < tam; i++) {
-        for (int j = 0; j < tam; j++) {
-            if (tab[i][j] == 'O') {
-                contO++;
-            }
-            if (tab[i][j] == 'X') {
-                contX++;
-            }
-        }
-        if (contX == tam || contO == tam) {
+        for (int j = 0; j < tam; j++)
+           teste_sequencia(i, j, pcontX, pcontO, tab);
+        if (contX == tam || contO == tam) 
             return true;
-        }
+        *pcontX = 0;
+        *pcontO = 0;
     }
     return false;
 }
 
 bool check_vertical(int tam, char** tab){
-    int contX=0, contO=0;
+    int contX = 0, contO = 0;
+    int *pcontX = &contX, *pcontO = &contO;
     for (int j = 0; j < tam; j++) {
-        for (int i = 0; i < tam; i++) {
-            if (tab[i][j] == 'O') {
-                contO++;
-            }
-            if (tab[i][j] == 'X') {
-                contX++;
-            }
-        }
-        if (contX == tam || contO == tam) {
+        for (int i = 0; i < tam; i++) 
+            teste_sequencia(i, j, pcontX, pcontO, tab);
+        if (contX == tam || contO == tam) 
             return true;
-        }
+        *pcontX = 0;
+        *pcontO = 0;
     }
     return false;
 }
 
 bool check_diagonalPrimaria(int tam, char** tab){
     int contX=0, contO=0;
+    int *pcontX = &contX, *pcontO = &contO;
     for (int i = 0; i < tam; i++) {
-        for (int j = 0; j < tam; j++) {
-            if (i==j) {
-                if (tab[i][j] == 'O') {
-                    contO++;
-                }
-                if (tab[i][j] == 'X') {
-                    contX++;
-                }
-            }
-        }
+        teste_sequencia(i, i, pcontX, pcontO, tab);
         if (contX == tam || contO == tam) {
             return true;
         }
+        *pcontX = 0;
+        *pcontO = 0;
     }
     return false;
 }
@@ -64,10 +65,16 @@ bool check_diagonalSecundaria(int tam, char** tab){
         for (int j = tam; j < 0; j++) {
             if (i==j) {
                 if (tab[i][j] == 'O') {
+                    contX = 0;
                     contO++;
                 }
                 if (tab[i][j] == 'X') {
+                    contO = 0;
                     contX++;
+                }
+                if(tab[i][j] == ' '){
+                    contO = 0;
+                    contX = 0;
                 }
             }
         }
@@ -91,10 +98,10 @@ int check_vitoria(int tam, char** tab){
 }
 
 void mensagem_vitoriaCirculo(){
-    printf("vitoria circulo");
+    printf("vitoria circulo\n");
 }
 
 void mensagem_vitoriaXis(){
-    printf("vitoria xis");
+    printf("vitoria xis\n");
 }
 

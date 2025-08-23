@@ -44,10 +44,18 @@ void libera_tabuleiro(int tam, char** tab) {
 void imprime_tabuleiro(int tam, char** tab) {
     printf("Tabuleiro: \n");
     for(int linha = 0; linha < tam; linha++){
-        int cont = 0;
         for(int coluna = 0; coluna < tam; coluna++){
-            cont++;
-            printf("%5c", tab[linha][coluna]);
+            printf("  %c ", tab[linha][coluna]);
+            if(coluna < tam - 1)
+                printf("|");
+        }
+        printf("\n");
+        if(linha < tam - 1){
+            for(int divisaoInferior = 0; divisaoInferior < tam; divisaoInferior++){
+                printf("----");
+                if(divisaoInferior < tam - 1)
+                    printf("+");
+            }
         }
         printf("\n");
     }
