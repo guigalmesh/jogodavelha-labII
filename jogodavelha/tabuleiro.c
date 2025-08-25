@@ -11,7 +11,6 @@ char **aloca_tabuleiro(int tam) {
         printf("alocacao deu erro!\n");
         return NULL;
     }
-    // colocando espaços em cada elemento da matriz
     for (int i = 0; i < tam; i++) {
         for (int j = 0; j < tam; j++) {
             tab[i][j] = ' ';
