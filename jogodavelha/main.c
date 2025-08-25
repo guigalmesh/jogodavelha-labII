@@ -7,12 +7,12 @@
 
 int main() {
 
-    int tam = input_tamanhoTabuleiro(); // solicita ao usuário tamanho da matriz
+    int tam = input_tamanhoTabuleiro();
 
-    char** tab = aloca_tabuleiro(tam); // testando criação e alocação da matriz
+    char** tab = aloca_tabuleiro(tam);
 
     game_loop(tam, tab);
 
-    libera_tabuleiro(tam, tab); // liberando memória da matriz
+    libera_tabuleiro(tam, tab);
     return 0;
 }
