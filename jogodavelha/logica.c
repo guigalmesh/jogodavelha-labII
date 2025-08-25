@@ -7,25 +7,25 @@ void game_loop(int tam, char **tab){
     int gameOver, contJogadas = 0;
     imprime_tabuleiro(tam, tab);
     while(true){
+        printf("contJogadas: %d\n", contJogadas);
         jogada_circulo(tam, tab);
         contJogadas++;
         imprime_tabuleiro(tam, tab);
-        if(contJogadas >= tam)
-            gameOver = check_vitoria(tam, tab);
-        if(gameOver == true){
+        if(check_vitoria(tam, tab)){
             mensagem_vitoriaCirculo();
             return;
         }
+        if(contJogadas == tam * tam)
+            break;
         jogada_xis(tam, tab);
         contJogadas++;
         imprime_tabuleiro(tam, tab);
-        if(contJogadas >= tam)
-            gameOver = check_vitoria(tam, tab);
-        if(gameOver == true){
+        if(check_vitoria(tam, tab)){
             mensagem_vitoriaXis();
             return;
         }
     }
+    printf("Deu velha.\n");
 }
 
 int jogada_circulo(int tam, char **tab){

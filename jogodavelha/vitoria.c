@@ -78,10 +78,10 @@ int check_vitoria(int tam, char** tab){
 }
 
 void mensagem_vitoriaCirculo(){
-    printf("vitoria circulo\n");
+    printf("Vitória do circulo!\n");
 }
 
 void mensagem_vitoriaXis(){
-    printf("vitoria xis\n");
+    printf("Vitória do X\n");
 }
 
